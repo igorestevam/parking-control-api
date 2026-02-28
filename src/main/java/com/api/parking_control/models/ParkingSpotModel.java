@@ -1,5 +1,6 @@
 package com.api.parking_control.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -36,6 +37,7 @@ public class ParkingSpotModel implements Serializable {
     private String colorCar;
 
     @Column(nullable = false, updatable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     private LocalDateTime registrationDate;
 
     @Column(nullable = false, length = 130)
